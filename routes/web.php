@@ -1,18 +1,29 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Request;
+use App\Models\Task;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
+// changeLanguage
+Route::get('changeLanguage/{language}', [LanguageController::class, 'changeLanguage'])->name('changeLanguage');
 
+/**
+ * Show Task Dashboard
+ */
 Route::get('/', function () {
-    return view('welcome');
+    //
+});
+
+/**
+ * Add New Task
+ */
+Route::post('/task', function (Request $request) {
+    //
+});
+
+/**
+ * Delete Task
+ */
+Route::delete('/task/{id}', function (Task $id) {
+    //
 });
