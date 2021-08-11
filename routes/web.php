@@ -3,6 +3,9 @@
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Request;
 use App\Models\Task;
+use App\Http\Controllers\LanguageController;
+use App\Http\Controllers\TaskController;
+use Faker\Guesser\Name;
 
 // changeLanguage
 Route::get('changeLanguage/{language}', [LanguageController::class, 'changeLanguage'])->name('changeLanguage');
@@ -10,20 +13,14 @@ Route::get('changeLanguage/{language}', [LanguageController::class, 'changeLangu
 /**
  * Show Task Dashboard
  */
-Route::get('/', function () {
-    //
-});
+Route::get('/', [TaskController::class, 'index'])->name('/');
 
 /**
  * Add New Task
  */
-Route::post('/task', function (Request $request) {
-    //
-});
+Route::post('/tasks', [TaskController::class,'store'])->name('task');
 
 /**
  * Delete Task
  */
-Route::delete('/task/{id}', function (Task $id) {
-    //
-});
+Route::delete('/delete/{id}',[TaskController::class, 'destroy'])->name('delete');
